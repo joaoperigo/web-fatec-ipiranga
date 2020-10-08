@@ -1,0 +1,145 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+  body{
+    background-color: #f4f4f4;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  body > section {
+    position: relative;
+    padding: 3rem 0;
+  }
+  h1, h2 {
+    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    text-transform: uppercase;
+    font-weight: 900; 
+    font-size: 1.1rem;
+  }
+  nav {
+    /* font-family: 'Quicksand', sans-serif; */
+    /* font-family: 'Lato', sans-serif; */
+    /* font-weight: 900; */
+    /* text-transform: uppercase; */
+  }
+  a, a:hover {
+    color: #999999;
+    transition: opacity ease 1s;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+  }
+  a:hover {
+    opacity: .6;
+  }
+  // p {
+    
+  // }
+  .form-control {
+    background-color: #f8f8f8;
+  }
+  .search-form {
+    padding-top: 2rem;
+  }
+  .login-col {
+    text-align: center;
+    padding-top: 2rem;
+  }
+  .login {
+    font-size: 3rem;
+  }
+  input:focus {
+    border-color: transparent !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0 rgba(0,123,255,0) !important;
+  }
+  .sticky {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    transition: opacity ease 1s;
+    background-color: rgba(245,245,245,1);
+    z-index: 2;
+  }
+  .navbar-collapse {
+    background-color: #f4f4f4 ;
+  }
+  .logo-navbar {
+    transition: width ease 2s;
+    width: 0;
+    height: 89px;
+  } 
+  .logo-navbar-mobile {
+    width: 150px;
+    height: auto;
+  }
+  .login-navbar {
+    transition: all ease 2s;
+    font-size: 0;
+    opacity: 0;
+  }
+  // .shadow-sm a:hover {
+  //   opacity: .8;
+  // }
+  .card {
+    background-color: transparent;
+    border-style: dashed;
+    padding:.3rem;
+  }
+  .bd-placeholder-img {
+    transition: filter ease .3s;
+    filter: saturate(100%) contrast(100%) invert(0%) hue-rotate(270deg);
+  }
+  
+  .bd-placeholder-img:hover {
+    filter: saturate(10%) contrast(190%) invert(100%) !important;  //hue-rotate(180deg)
+  }
+  
+  .preco {
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+  }
+  .comprar {
+    font-size: 1.2rem;
+  }
+  button:focus {
+    outline: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .desktop {
+      display: none;
+  }
+  @media (min-width: 576px) { /*exceto mobile*/
+    .login-col {
+      text-align: right;
+    }
+    .search-form {
+    padding-top: 0;
+  }
+  .login-col {
+    padding-top: 0;
+  }
+  .navbar-collapse {
+    background-color: transparent ;
+  }
+  }
+  @media (min-width: 768px) { //ajusta os col dos produtos
+    .preco {
+      font-size: .9rem;
+    }
+    .comprar {
+      font-size: .9rem;
+    }
+  }
+  @media (min-width: 992px) { 
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+  }
