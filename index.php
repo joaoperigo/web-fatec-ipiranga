@@ -14,12 +14,11 @@
                             <p class="card-text pt-2 pb-4 pr-2 pl-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
-                            <span class="preco">50,00R$</span>
-                            <div class="btn-group">
-                                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-                                <a href="produto-detalhe.php" class="btn btn-sm btn-outline-secondary comprar">Comprar</a>
-                            </div>
-                            
+                                <span class="preco">50,00R$</span>
+                                <div class="btn-group">
+                                    <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
+                                    <a href="produto-detalhe.php" class="btn btn-sm btn-outline-secondary comprar">Comprar</a>
+                                </div>
                             </div>
                         </div>
                         </div>
