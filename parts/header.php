@@ -21,19 +21,29 @@
                 <div class="col-md-2 offset-md-0 col-6 offset-3 mb-5 mb-sm-0">
                     <div class="logo">
                         <a href="index.php">
-                        <img src="./img/imagologo.svg" alt="Logo Nav Bar" class="img-fluid logo">
+                        <img src="./img/imagologo.svg" alt="Logo Nav Bar" class="img-fluid logo mb-5">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-9 d-flex justify-content-center align-items-center">
-                    <form class="search-form clearfix w-75 d-flex justify-content-center mx-auto" action="./produto-busca.php">
-                        <input type="text" class="form-control search" placeholder="Minha busca">
-                        <button type="submit" class="btn btn-sm btn-outline-secondary pl-3 pr-3 ml-2"><i class="fa fa-search"></i></button>
+                    <form class="search-form clearfix w-75 d-flex justify-content-center mx-auto" method="post" action="./produto-busca.php">
+                        <input type="text" class="form-control search" name="title" placeholder="Minha busca">
+                        <button type="submit" name="searchBt" class="btn btn-sm btn-outline-secondary pl-3 pr-3 ml-2"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
                 <div class="col-md-1 login-col d-flex align-items-center">
                   <div class="wrapper w-100 login">
-                    <a href="login.php" title="login"><i class="fa fa-user"></i></a>
+                  <?php
+                        session_start();
+                        if(isset($_SESSION["name"])==false) { 
+                            echo '<br><a href="login.php">Logar | Cadastrar</a>';
+                         }
+                        else {
+                            echo '<span>Ola, <b>'. $_SESSION["name"] . '</b></span>';
+                            echo '<br><a href="logoff.php">Sair >></a>';
+                            echo '<a href="login.php" title="login"><i class="fa fa-user"></i></a>';
+                        }
+                    ?>  
                   </div>
                 </div>
             </div>

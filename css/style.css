@@ -142,9 +142,6 @@ button:focus {
 
 @media (min-width: 576px) {
   /*exceto mobile*/
-  .login-col {
-    text-align: right;
-  }
   .search-form {
     padding-top: 0;
   }
@@ -171,6 +168,9 @@ button:focus {
   }
   .desktop {
     display: block;
+  }
+  .login-col {
+    text-align: right;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -114,3 +114,12 @@ for(i=1; i < numItems; i++) {
     if(cosseno > 360) cosseno = 45;
     $(".bd-placeholder-img:eq(" + i + ")").css('filter', ' saturate(100%) contrast(100%) invert(0%) hue-rotate(' + cosseno + 'deg)');
 }
+
+//used in esqueci
+function seVazio() {
+    if(emailEsqueci.value.length == 0){
+        alert("Campo vazio");
+        emailEsqueci.focus();
+        return false;
+    }
+}
