@@ -12,7 +12,7 @@ Utilizar o mesmo grupo e estrutura da tema do projeto P1
 
 ## Baseado no tema escolhido, faça as seguintes ações
 	
-    1. Transformar as páginas estaticas em dinamicas - OK
+1. Transformar as páginas estaticas em dinamicas - OK
 
 	2. vitrine - A página vitrine deverá listar a consulta dos produtos em destaque
 ![alt text](https://github.com/joaoperigo/web-fatec-ipiranga/blob/master/public/p1_vitrine.png "Search")
