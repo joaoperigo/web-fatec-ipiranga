@@ -30,7 +30,7 @@ nav {
   /* text-transform: uppercase; */
 }
 
-a, a:hover {
+a, a:hover, .button-nav, .button-nav:hover {
   color: #999999;
   -webkit-transition: opacity ease 1s;
   transition: opacity ease 1s;
@@ -40,6 +40,7 @@ a, a:hover {
 
 a:hover {
   opacity: .6;
+  text-decoration: none;
 }
 
 .form-control {
@@ -48,6 +49,7 @@ a:hover {
 
 .search-form {
   padding-top: 2rem;
+  width: 75%;
 }
 
 .login-col {
@@ -99,6 +101,10 @@ input:focus {
   opacity: 0;
 }
 
+.logar-icone span {
+  font-size: .8rem;
+}
+
 .card {
   background-color: transparent;
   border-style: dashed;
@@ -130,6 +136,14 @@ input:focus {
 
 button:focus {
   outline: none;
+}
+
+.table-cesta td {
+  vertical-align: middle;
+}
+
+.th-img-cesta {
+  width: 75px;
 }
 
 .mobile {
@@ -171,6 +185,9 @@ button:focus {
   }
   .login-col {
     text-align: right;
+  }
+  .search-form {
+    width: 75%;
   }
 }
 /*# sourceMappingURL=style.css.map */

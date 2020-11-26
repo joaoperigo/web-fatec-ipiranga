@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="./css/style.css">
 
     <link rel="icon" href="img/favicon.png" />
+
+    <meta name="robots" content="noindex">
+
 </head>
 <body>
     <!-- CABECALHO -->
@@ -21,27 +24,28 @@
                 <div class="col-md-2 offset-md-0 col-6 offset-3 mb-5 mb-sm-0">
                     <div class="logo">
                         <a href="index.php">
-                        <img src="./img/imagologo.svg" alt="Logo Nav Bar" class="img-fluid logo mb-5">
+                            <img src="./img/imagologo.svg" alt="Logo Nav Bar" class="img-fluid logo mb-5">
                         </a>
                     </div>
                 </div>
+
                 <div class="col-md-9 d-flex justify-content-center align-items-center">
-                    <form class="search-form clearfix w-75 d-flex justify-content-center mx-auto" method="post" action="./produto-busca.php">
-                        <input type="text" class="form-control search" name="title" placeholder="Minha busca">
-                        <button type="submit" name="searchBt" class="btn btn-sm btn-outline-secondary pl-3 pr-3 ml-2"><i class="fa fa-search"></i></button>
+                    <form class="search-form clearfix d-flex justify-content-center mx-auto" method="post" action="./produto-busca.php">
+                        <input type="text" class="form-control search" name="title" id="searchForm" placeholder="Minha busca" required>
+                        <button type="submit" name="searchBt" onclick="validateSearch();" class="btn btn-sm btn-outline-secondary pl-3 pr-3 ml-2"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
+
                 <div class="col-md-1 login-col d-flex align-items-center">
-                  <div class="wrapper w-100 login">
+                  <div class="wrapper w-100 login text-center d-flex align-items-center">
                   <?php
                         session_start();
                         if(isset($_SESSION["name"])==false) { 
-                            echo '<br><a href="login.php">Logar | Cadastrar</a>';
+                            echo '<a href="login.php" class="logar-icone"><i class="fa fa-user d-block"></i><span class="d-block">logar</span></a>';
                          }
                         else {
-                            echo '<span>Ola, <b>'. $_SESSION["name"] . '</b></span>';
-                            echo '<br><a href="logoff.php">Sair >></a>';
-                            echo '<a href="login.php" title="login"><i class="fa fa-user"></i></a>';
+                            echo '<a href="login.php" class="logar-icone pr-3 border-right"><i class="fa fa-shopping-basket d-block"></i><span class="d-block">comprar</span></a>';
+                            echo '<a href="logoff.php" class="logar-icone pl-3"><i class="fa fa-user d-block"></i><span class="d-block">deslogar</span></a>';
                         }
                     ?>  
                   </div>
@@ -73,14 +77,30 @@
                   <li class="nav-item">
                       <a class="nav-link" href="cadastro.php">Cadastro</a>
                   </li>
+                  <?php if(isset($_SESSION["name"])==true) { ?>
+                  <li class="nav-item">
+                      <form action="./cadastro.php" method="post"><button class="border-0 text-uppercase nav-link bg-transparent button-nav" name="editUser">Alterar</button></form>
+                  </li>
+                  <?php } ?>
                   <li class="nav-item mobile">
                       <a class="nav-link" href="login.php">Login</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="cesta.php">Cesta</a>
+                      <a class="nav-link" href="cesta.php">Cesta <i class="fa fa-shopping-basket"></i></a>
                   </li>
               </ul>
           </div>
-          <a class="desktop navbar-right pr-3 login-navbar" href="login.php" title="login"><i class="fa fa-user"></i></a>
+            <?php if(isset($_SESSION["name"])==false) { 
+                echo '<a class="desktop navbar-right pr-3 login-navbar" href="login.php" title="login">';
+                echo '<span class="small text-capitalize">logar</span> <i class="fa fa-user"></i>';
+                echo '</a>';
+             } 
+                else {
+                    echo '<a class="desktop navbar-right pr-3 login-navbar" href="logoff.php" title="deslogar">';
+                    echo '<span class="small text-capitalize">deslogar</span> <i class="fa fa-user"></i>';
+                    echo '</a>';
+                }
+            ?>  
+        </a>
       </div>
   </nav>

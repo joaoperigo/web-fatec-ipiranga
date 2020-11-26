@@ -4,8 +4,8 @@ if($_GET['code']) read($_GET['code']);
 function read($code) {
 	$con = new mysqli("localhost","root","","p2_shop");
 	$sql	= "select * from product where code=$code";
-    $resultado = mysqli_query($con, $sql);
-    while($reg = mysqli_fetch_array($resultado)){
+    $result = mysqli_query($con, $sql);
+    while($reg = mysqli_fetch_array($result)){
 ?>
     <section id="produto">
         <div class="container">
@@ -17,8 +17,14 @@ function read($code) {
                     <div class="wrapper">
                         <h1 class="mt-3 mt-sm-0"> <?php echo $reg['title'] ?> </h1>
                         <p class="p-2 pt-4"><?php echo $reg['description'] ?></p>
-                        <span class="preco small d-block mb-3 ml-2"><?php echo $reg['price'] ?>R$</span>
-                        <a href="cesta.php" class="btn btn-sm btn-outline-secondary ml-2">COMPRAR</a>
+                        <hr>
+                        <label for="quantity">Quantidade:</label>
+                        <input type="number" value="1" class="border-0" id="productQuantity" name="quantity"
+                            min="1" max="<?php echo $reg['quantity']; ?>">
+                            <span id="totalProdutoDetalhe" class="preco small d-block ml-2"><span id="priceProduct"><?php echo $reg['price'] ?></span>R$</span>
+                        <div class="text-right">
+                            <a id="comprarButton" href="cesta.php?code=<?php echo $reg['code']; ?>" class="btn btn-sm btn-secondary comprar">COMPRAR</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -123,3 +123,46 @@ function seVazio() {
         return false;
     }
 }
+
+
+//ajax para ler resto dos posts
+$(document).ready(function() {
+    $("#more-products").on( "click", function() {
+        $.ajax({
+            url: 'loadmore.php',
+            type: 'POST',
+            data: {more: 'ola'},            
+            success: function(response) {             
+                $( response ).appendTo( "#vitrine-row" );
+                $("#more-products").addClass('d-none').removeClass('d-block');
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+        e.preventDefault();
+    });
+});
+
+//busca
+function validateSearch() {
+    if(searchForm.value.length == 0){
+        alert("Digite alguma coisas !");
+        searchForm.focus();
+        return false;
+    }
+}
+
+//update price
+
+var unitPrice = $('#priceProduct').html();
+var href = $('#comprarButton').attr('href');
+var hrefFinal = href + '&quantity=1';
+$('#comprarButton').attr("href", hrefFinal);
+
+$('#productQuantity').change(function() {
+    var x = productQuantity.value;
+    hrefFinal = href + '&quantity=' + x;
+    $('#priceProduct').html(unitPrice*x);
+    $('#comprarButton').attr('href', hrefFinal );
+});

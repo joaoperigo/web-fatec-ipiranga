@@ -25,7 +25,7 @@ body, html {
     /* font-weight: 900; */
     /* text-transform: uppercase; */
   }
-  a, a:hover {
+  a, a:hover, .button-nav, .button-nav:hover {
     color: #999999;
     transition: opacity ease 1s;
     font-family: 'Quicksand', sans-serif;
@@ -33,6 +33,7 @@ body, html {
   }
   a:hover {
     opacity: .6;
+    text-decoration: none;
   }
   // p {
     
@@ -42,6 +43,7 @@ body, html {
   }
   .search-form {
     padding-top: 2rem;
+    width: 75%;
   }
   .login-col {
     text-align: center;
@@ -80,6 +82,9 @@ body, html {
     font-size: 0;
     opacity: 0;
   }
+  .logar-icone span {
+    font-size: .8rem;
+  }
   // .shadow-sm a:hover {
   //   opacity: .8;
   // }
@@ -107,6 +112,17 @@ body, html {
   button:focus {
     outline: none;
   }
+  //CESTA
+  .table-cesta td {
+      // align-items: center!important;
+      // justify-content: center!important;
+      // display: flex!important;
+      vertical-align: middle;
+  }
+  .th-img-cesta {
+    width: 75px;
+  }
+  //adjuste mobilw
   .mobile {
     display: block;
   }
@@ -142,5 +158,8 @@ body, html {
     }
     .login-col {
       text-align: right;
+    }
+    .search-form {
+      width: 75%;
     }
   }

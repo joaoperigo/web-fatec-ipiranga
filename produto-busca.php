@@ -8,11 +8,16 @@
         $con = new mysqli("localhost","root","","p2_shop");
         $sql	=  "select * from product where title like '%$search%' order by title";
         $resultado = mysqli_query($con, $sql);
-
 ?>
 <section id="busca">
         <div class="container">
-        <h1>Pesquisa por: <strong>Seu produto</strong></h1>
+            <?php if($reg = mysqli_fetch_array($resultado)){
+                echo '<h1>Pesquisa por: <strong>Seu produto</strong></h1>';
+            } else {
+                echo '<h1>Nenhum produto encontrado.</h1>';
+            } 
+                ?>
+        
             <div class="row pt-0 pt-sm-5 pb-5">
             <?php while($reg = mysqli_fetch_array($resultado)){ ?>
                     <div class="col-md-4 mb-5">
