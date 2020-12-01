@@ -8,18 +8,15 @@
         $con = new mysqli("localhost","root","","p2_shop");
         $sql	=  "select * from product where title like '%$search%' order by title";
         $resultado = mysqli_query($con, $sql);
+        $checkIfEmpty=0;
 ?>
 <section id="busca">
         <div class="container">
-            <?php if($reg = mysqli_fetch_array($resultado)){
-                echo '<h1>Pesquisa por: <strong>Seu produto</strong></h1>';
-            } else {
-                echo '<h1>Nenhum produto encontrado.</h1>';
-            } 
-                ?>
+            <h1>Resultado da pesquisa:</h1>
         
             <div class="row pt-0 pt-sm-5 pb-5">
-            <?php while($reg = mysqli_fetch_array($resultado)){ ?>
+            <?php while($reg = mysqli_fetch_array($resultado)){ 
+                $checkIfEmpty++; ?>
                     <div class="col-md-4 mb-5">
                         <div class="card mb-4">
                         <a href="produto-detalhe.php">
@@ -32,7 +29,7 @@
                             <span class="preco"><?php echo $reg['price'] ?>R$</span>
                             <div class="btn-group">
                                 <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-                                <a href="produto-detalhe.php" class="btn btn-sm btn-outline-secondary comprar">Comprar</a>
+                                <a href="produto-detalhe.php?code=<?php echo $reg['code'];  ?>" class="btn btn-sm btn-outline-secondary comprar">Comprar</a>
                             </div>
 
                             </div>
@@ -40,6 +37,7 @@
                         </div>
                     </div>
                 <?php } //close loop ?>
+                <?php if($checkIfEmpty==0) echo '<h2 class="text-center small font-weight-normal">Não encontramos nenhum produto :(' ?>
             </div>
         </div>
     </section>
