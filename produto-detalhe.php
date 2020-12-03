@@ -23,7 +23,7 @@ function read($code) {
                             min="1" max="<?php echo $reg['quantity']; ?>">
                             <span id="totalProdutoDetalhe" class="preco small d-block ml-2"><span id="priceProduct"><?php echo $reg['price'] ?></span>R$</span>
                         <div class="text-right">
-                            <a id="comprarButton" href="cesta.php?code=<?php echo $reg['code']; ?>" class="btn btn-sm btn-secondary comprar">COMPRAR</a>
+                            <a id="comprarButton" href="cartSession.php?code=<?php echo $reg['code']; ?>" class="btn btn-sm btn-secondary comprar">COMPRAR</a>
                         </div>
                     </div>
                 </div>
