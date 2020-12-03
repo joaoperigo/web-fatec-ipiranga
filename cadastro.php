@@ -1,7 +1,7 @@
 <?php include 'parts/header.php' ?>
 <?php 
-//if isset false with no session
-$code=0;
+//if isset false with no session use this values bellow
+$code=0; //bool for decide if update or create
 $name='';
 $email='';
 $cpf='';
@@ -67,22 +67,33 @@ if(isset($_POST['editUser'])) {
 
 <?php 
 
-if(isset($_POST["create"]) && $code==0) create();
+if(isset($_POST["create"]) && $code==0) create(); 
 if(isset($_POST["create"]) && $code!=0) update();
 
-function create(){
+function create(){ 
   $name 	= $_POST["name"];
   $email	= $_POST["email"];
   $password	= $_POST["password"];
   $cpf	= $_POST["cpf"];
   $telephone	= $_POST["telephone"];
-  // echo '<script>alert("sad)</script>';
+
+  //check if email exists - select email from product where email='$email'    if(mysqli_fetch_array($result)!=0)
+  $con	= new mysqli("localhost","root","","p2_shop");	
+  $sql	= "select email from client where email='$email'";
+  $err = mysqli_query($con, $sql);
+  if(mysqli_num_rows($err)!=0) {
+    echo "<script>alert('usar outro email')</script>";
+    $con->close();
+    exit;
+  }
+  else $con->close();
+
+  //Know can insert
   $con	= new mysqli("localhost","root","","p2_shop");	
   $sql	= "insert into client(name, email, password, cpf, telephone) values('$name', '$email', md5('$password'), '$cpf', '$telephone')";
   $err = mysqli_query($con, $sql);
-  // echo "<script>alert('Registro inserido')</script>";
-  echo $showTb;
   $con->close();
+  echo "<script>alert('Bem vindo " . $name . "!')</script>";
 }
 
 function update(){
